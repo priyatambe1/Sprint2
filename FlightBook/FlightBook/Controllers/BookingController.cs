@@ -29,7 +29,32 @@ namespace FlightBook.Controllers
             db.SaveChanges();
             return "success";
         }
+        [HttpDelete]
+        public string Delete([FromBody] int Id)
+        {
+            var bookdetail = db.TblBookDetails.Where(x => x.Id == Id).FirstOrDefault();
+            if (bookdetail != null)
+            {
+                db.TblBookDetails.Remove(bookdetail);
+                db.SaveChanges();
+                return "Success";
+            }
 
+            return "Fail";
+        }
+        [HttpPut]
+        public string Put([FromBody] TblBookDetail tblsample)
+        {
+            var tblsampleObj = db.TblBookDetails.Where(x => x.Id == tblsample.Id);
+            if (tblsampleObj != null)
+            {
+                db.TblBookDetails.Update(tblsample);
+                db.SaveChanges();
+                return "Success";
+            }
+
+            return "Fail";
+        }
 
     }
 }
