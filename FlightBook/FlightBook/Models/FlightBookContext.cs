@@ -26,7 +26,7 @@ namespace FlightBook.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-3CGDM53;Initial Catalog=FlightBook;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Server=tcp:flight.database.windows.net,1433;Initial Catalog=FlightBook;Persist Security Info=False;\nUser ID=flight;Password=Booking@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;\n");
             }
         }
 
@@ -36,13 +36,15 @@ namespace FlightBook.Models
 
             modelBuilder.Entity<TblBookDetail>(entity =>
             {
-                entity.Property(e => e.Email).HasMaxLength(200);
+                entity.ToTable("TblBookDetail");
+
+                entity.Property(e => e.Email).HasMaxLength(100);
+
+                entity.Property(e => e.Gender).HasMaxLength(100);
 
                 entity.Property(e => e.Meal).HasMaxLength(100);
 
                 entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.Property(e => e.PassengerDetails).HasMaxLength(100);
             });
 
             modelBuilder.Entity<TblFlight>(entity =>
@@ -55,17 +57,19 @@ namespace FlightBook.Models
 
                 entity.Property(e => e.Days).HasMaxLength(100);
 
-                entity.Property(e => e.EndDateTime).HasColumnType("datetime");
+                entity.Property(e => e.EndDateTime).HasMaxLength(100);
 
                 entity.Property(e => e.FromPlace).HasMaxLength(100);
 
                 entity.Property(e => e.Instrument).HasMaxLength(100);
 
-                entity.Property(e => e.Meal).HasMaxLength(100);
+                entity.Property(e => e.Logo).HasMaxLength(10);
+
+                entity.Property(e => e.Meal).HasMaxLength(10);
 
                 entity.Property(e => e.NonBusinessSeats).HasMaxLength(100);
 
-                entity.Property(e => e.StartDateTime).HasColumnType("datetime");
+                entity.Property(e => e.StartDateTime).HasMaxLength(100);
 
                 entity.Property(e => e.ToPlace).HasMaxLength(100);
             });
@@ -74,9 +78,9 @@ namespace FlightBook.Models
             {
                 entity.ToTable("TblLogin");
 
-                entity.Property(e => e.Password).HasMaxLength(200);
+                entity.Property(e => e.Password).HasMaxLength(100);
 
-                entity.Property(e => e.UserName).HasMaxLength(200);
+                entity.Property(e => e.UserName).HasMaxLength(100);
             });
 
             OnModelCreatingPartial(modelBuilder);
