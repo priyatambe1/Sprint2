@@ -26,7 +26,7 @@ namespace FlightBook.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=tcp:flight.database.windows.net,1433;Initial Catalog=FlightBook;Persist Security Info=False;\nUser ID=flight;Password=Booking@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;\n");
+                optionsBuilder.UseSqlServer("Server=tcp:flight.database.windows.net,1433;Initial Catalog=FlightBook;Persist Security Info=False;User ID=flight;Password=Booking@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;;TrustServerCertificate=False;Connection Timeout=30;\n");
             }
         }
 
@@ -63,9 +63,9 @@ namespace FlightBook.Models
 
                 entity.Property(e => e.Instrument).HasMaxLength(100);
 
-                entity.Property(e => e.Logo).HasMaxLength(10);
+                entity.Property(e => e.Logo).HasMaxLength(100);
 
-                entity.Property(e => e.Meal).HasMaxLength(10);
+                entity.Property(e => e.Meal).HasMaxLength(100);
 
                 entity.Property(e => e.NonBusinessSeats).HasMaxLength(100);
 

@@ -25,6 +25,12 @@ namespace FlightBook.Controllers
         [HttpPost]
         public string Post([FromBody] TblFlight flight)
         {
+           /* if (flight.IsActive == 1)
+            {
+                db.SaveChanges();
+            }
+            else
+                return "no";*/
             db.TblFlights.Add(flight);
             db.SaveChanges();
             return "success";

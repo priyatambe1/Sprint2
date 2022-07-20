@@ -67,3 +67,4 @@ C:\Users\HP\Desktop\.Net Training\Sprint2-WebApi\FlightBook\FlightBook\obj\Debug
 C:\Users\HP\Desktop\.Net Training\Sprint2-WebApi\FlightBook\FlightBook\obj\Debug\netcoreapp3.1\FlightBook.dll
 C:\Users\HP\Desktop\.Net Training\Sprint2-WebApi\FlightBook\FlightBook\obj\Debug\netcoreapp3.1\FlightBook.pdb
 C:\Users\HP\Desktop\.Net Training\Sprint2-WebApi\FlightBook\FlightBook\obj\Debug\netcoreapp3.1\FlightBook.genruntimeconfig.cache
+C:\Users\HP\Desktop\.Net Training\Sprint2-WebApi\FlightBook\FlightBook\obj\Debug\netcoreapp3.1\FlightBook.csproj.AssemblyReference.cache
