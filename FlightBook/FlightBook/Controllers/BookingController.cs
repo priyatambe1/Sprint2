@@ -30,7 +30,7 @@ namespace FlightBook.Controllers
             return "success";
         }
         [HttpDelete]
-        public string Delete([FromBody] int Id)
+        public string Delete(int Id)
         {
             var bookdetail = db.TblBookDetails.Where(x => x.Id == Id).FirstOrDefault();
             if (bookdetail != null)
